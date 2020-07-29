@@ -1,0 +1,48 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb-base",
+  "rules": {
+    "no-param-reassign": 0,
+    "no-await-in-loop": 0,
+    "global-require": 0,
+    "no-restricted-syntax": 0,
+    "import/no-dynamic-require": 0,
+    "no-underscore-dangle": ["error", { "allow": ["__v", "_id"] }],
+    "class-methods-use-this": [
+      "error",
+      {
+        "exceptMethods": [
+          "isValidDataWhenCreate",
+          "isValidDataWhenRetrieve",
+          "isValidDataWhenUpdateStatus",
+          "isExist",
+          "isExistWhenCreate",
+          "convertQueryCriteria",
+          "convertCountCriteria",
+          "isValidQueryCondition",
+          "logic2DB",
+          "logic2DBWhenUpdate",
+          "db2logic",
+          "list2logic",
+          "db2logicExpand",
+          "list2logicExpand",
+          "beforeCreate",
+          "beforeDestroy",
+          "afterDestroy",
+          "parseExpand2Include",
+
+          "create",
+          "findById",
+          "findByIdAndUpdate",
+          "list",
+          "countDocuments",
+          "find",
+          "findOne",
+          "findByIdAndDelete"
+        ]
+      }
+    ],
+    "func-names":"off",
+    "semi": ["error", "never"]
+  }
+}

@@ -1,0 +1,10 @@
+node_modules/
+.env
+.test_env
+.production_env
+*.log
+dist/
+.nyc_output
+./graphql
+.idea/
+apidocs/

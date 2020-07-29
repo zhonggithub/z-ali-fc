@@ -1,0 +1,15 @@
+{
+  "MISSING_EMAIL": "Missing email.",
+  "MISSING_TID": "Missing TID.",
+  "MISSING_APPID": "Missing appID.",
+  "MISSING_APPNAME": "Missing appName.",
+  "MISSING_ACCOUNTID": "Missing accountID.",
+  "MISSING_ACCOUNTNAME": "Missing accountName.",
+  "MISSING_NAME": "Missing name.",
+  "MISSING_ID": "Missing id.",
+  "MISSING_PASSWORD": "Missing password.",
+  "MISSING_URL": "Missing url.",
+  "MISSING_IP": "Missing ip.",
+  "MISSING_METHOD": "Missing method.",
+  "MISSING_PARAMS": "Missing params."
+}

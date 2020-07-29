@@ -1,0 +1,81 @@
+type ListBookResponseData {
+  items: [Book]
+  total: Int
+  offset: Int
+  limit: Int
+  page: Int
+  pageSize: Int
+}
+type ListBookResponse {
+  code: String|Int
+  message: String
+  data: ListBookResponseData
+}
+type FindAllBookResponse {
+  code: String|Int
+  message: String
+  data: [Book]
+}
+type CountBookResponse {
+  code: String|Int
+  message: String
+  data: Int
+}
+type BookResponse {
+  code: String|Int
+  message: String
+  data: Book
+}
+
+enum BookStatus {
+  ENABLED
+  DISABLED
+}
+
+type Book {
+  createdAt: String
+  updatedAt: String
+  id: Int
+  name: String
+  status: BookStatus
+  authorId: Int
+  author: Author
+}
+
+type UpdateBookStatusInput {
+  status: BookStatus!
+  id: String!
+}
+type UpdateBookInput {
+  name: String!
+  status: BookStatus
+  authorId: Int!
+  id: String!
+}
+type CreateBookInput {
+  name: String!
+  status: BookStatus
+  authorId: Int!
+}
+type Mutation {
+  createBook(data: CreateBookInput): BookResponse
+  updateBook(data: UpdateBookInput): BookResponse
+  updateBookStatus(data: UpdateBookStatusInput): BookResponse
+  destroyBook(id: String): BookResponse
+}
+type BookQueryCriteria {
+  status: BookStatus
+  id: String
+}
+type BookQueryCriteria {
+  name: String
+  status: BookStatus
+  authorId: Int
+}
+type Query {
+  retrieveBook(id: String): BookResponse
+  listBook(params: BookQueryCriteria): ListBookResponse
+  countBook(params: BookQueryCriteria): CountBookResponse
+  findAllBook(params: BookQueryCriteria): findAllBookResponse
+  findOneBook(params: BookQueryCriteria): BookResponse
+}

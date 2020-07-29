@@ -1,0 +1,80 @@
+type ListTestResponseData {
+  items: [Test]
+  total: Int
+  offset: Int
+  limit: Int
+  page: Int
+  pageSize: Int
+}
+type ListTestResponse {
+  code: String|Int
+  message: String
+  data: ListTestResponseData
+}
+type findAllTestResponse {
+  code: String|Int
+  message: String
+  data: [Test]
+}
+type CountTestResponse {
+  code: String|Int
+  message: String
+  data: Int
+}
+type TestResponse {
+  code: String|Int
+  message: String
+  data: Test
+}
+
+enum TestStatus {
+  ENABLED
+  DISABLED
+}
+
+type Test {
+  createdAt: String
+  updatedAt: String
+  id: Int
+  name: String
+  mobile: String
+  status: TestStatus
+}
+
+type UpdateTestStatusInput {
+  status: TestStatus!
+  id: String!
+}
+type UpdateTestInput {
+  name: String!
+  mobile: String
+  status: TestStatus
+  id: String!
+}
+type CreateTestInput {
+  name: String!
+  mobile: String
+  status: TestStatus
+}
+type Mutation {
+  createTest(data: CreateTestInput): TestResponse
+  updateTest(data: UpdateTestInput): TestResponse
+  updateTestStatus(data: UpdateTestStatusInput): TestResponse
+  destroyTest(id: String): TestResponse
+}
+type TestQueryCriteria {
+  status: TestStatus
+  id: String
+}
+type TestQueryCriteria {
+  name: String
+  mobile: String
+  status: TestStatus
+}
+type Query {
+  retrieveTest(id: String): TestResponse
+  listTest(params: TestQueryCriteria): ListTestResponse
+  countTest(params: TestQueryCriteria): CountTestResponse
+  findAllTest(params: TestQueryCriteria): findAllTestResponse
+  findOneTest(params: TestQueryCriteria): TestResponse
+}

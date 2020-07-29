@@ -1,0 +1,8 @@
+{
+  "mkdocs": {
+    "site_name": "z-ali-fc",
+    "site_favicon": "favicon.ico",
+    "copyright": "© Zz"
+  },
+  "apiCfgFilePath": "/src/modules/services/*/mkdocCfg.js"
+}

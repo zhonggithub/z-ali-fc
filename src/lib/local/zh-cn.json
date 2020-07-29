@@ -1,0 +1,16 @@
+{
+  "MISSING_EMAIL": "缺少参数 email.",
+  "MISSING_TID": "缺少参数 TID.",
+  "MISSING_APPID": "缺少参数 appID.",
+  "MISSING_APPNAME": "缺少参数 appName.",
+  "MISSING_ACCOUNTID": "缺少参数 accountID.",
+  "MISSING_ACCOUNTNAME": "缺少参数 accountName.",
+  "MISSING_NAME": "缺少参数 name.",
+  "MISSING_ID": "缺少参数 id.",
+  "MISSING_PASSWORD": "缺少参数 password.",
+  "MISSING_URL": "缺少参数 url.",
+  "MISSING_IP": "缺少参数 ip.",
+  "MISSING_METHOD": "缺少参数 method.",
+  "MISSING_PARAMS": "缺少参数 params.",
+  "TEST_UU": "错误测试"
+}

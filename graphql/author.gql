@@ -1,0 +1,92 @@
+type ListAuthorResponseData {
+  items: [Author]
+  total: Int
+  offset: Int
+  limit: Int
+  page: Int
+  pageSize: Int
+}
+type ListAuthorResponse {
+  code: String|Int
+  message: String
+  data: ListAuthorResponseData
+}
+type FindAllAuthorResponse {
+  code: String|Int
+  message: String
+  data: [Author]
+}
+type CountAuthorResponse {
+  code: String|Int
+  message: String
+  data: Int
+}
+type AuthorResponse {
+  code: String|Int
+  message: String
+  data: Author
+}
+
+enum AuthorSex {
+  MAN
+  WOMAN
+}
+
+type Author {
+  createdAt: String
+  updatedAt: String
+  id: Int
+  name: String
+  mobile: String
+  sex: AuthorSex
+  status: Int
+  books: [Book]
+}
+
+type Author1Items {
+  name: String
+}
+type Author1 {
+  items: [Author1Items]
+}
+type AddOrUpdateAuthorInput {
+  name: String
+}
+type UpdateAuthorInput {
+  name: String!
+  mobile: String
+  sex: AuthorSex
+  status: Int
+  id: String!
+}
+type CreateAuthorOutput {
+  name: String
+}
+type CreateAuthorInput {
+  name: String
+  age: Int
+  status: Boolean
+}
+type Mutation {
+  createAuthor(data: CreateAuthorInput): CreateAuthorOutput
+  updateAuthor(data: UpdateAuthorInput): AuthorResponse
+  destroyAuthor(id: String): AuthorResponse
+  addOrUpdate(data: AddOrUpdateAuthorInput): Author1
+}
+type AuthorQueryCriteria {
+  status: AuthorStatus
+  id: String
+}
+type AuthorQueryCriteria {
+  name: String
+  mobile: String
+  sex: AuthorSex
+  status: Int
+}
+type Query {
+  retrieveAuthor(id: String): AuthorResponse
+  listAuthor(params: AuthorQueryCriteria): ListAuthorResponse
+  countAuthor(params: AuthorQueryCriteria): CountAuthorResponse
+  findAllAuthor(params: AuthorQueryCriteria): findAllAuthorResponse
+  findOneAuthor(params: AuthorQueryCriteria): AuthorResponse
+}
