@@ -63,3 +63,28 @@ api的入参和出参统一采用json格式。
 |offset | Int | 是 | 无 | 起始条数|
 |items | Array | 否 | 无 | 返回数据项|
 
+
+### 部署后如何使用
+
+```
+
+```javascript
+const FCClient = require('@alicloud/fc2')
+
+const client = new FCClient('your account id', {
+  accessKeyID: 'your accessKeyID',
+  accessKeySecret: 'your accessKeyID',
+  region: 'cn-shenzhen',
+})
+client.invokeFunction('test', 'test', JSON.stringify({
+  role: 'seneca.author',
+  cmd: 'create',
+  params: {
+    name: Math.random().toString(),
+    mobile: '13760471840',
+    sex: 'MAN',
+  },
+})).then((ret) => {
+  console.log(ret)
+})
+```
