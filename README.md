@@ -10,7 +10,7 @@
 
 # Basic Usage
 
-* 在src/modules/services创建文件夹author。author负责作者相关的业务
+* 在src/modules/services创建文件夹author。author负责核心业务实现
 * 在author文件夹下创建schema.js文件，定义author数据模型model
 * 在author文件夹内创建Service.js文件，负责业务实现
 
