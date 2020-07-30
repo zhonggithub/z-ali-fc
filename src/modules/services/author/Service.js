@@ -5,7 +5,7 @@
  * Created Date: 2020-04-19 15:40:26
  * Author: Zz
  * -----
- * Last Modified: 2020-07-29 22:07:55
+ * Last Modified: 2020-07-30 09:03:19
  * Modified By: Zz
  * -----
  * Description:
@@ -20,12 +20,12 @@ import schema from './schema'
 const { Sex } = schema
 
 class AuthorService extends mysqlSeneca.Service {
-  constructor(seneca, cache) {
+  constructor(fcService, cache) {
     const resourceName = 'author'
     const role = `${config.serviceName}.${resourceName}`
 
     super({
-      seneca,
+      fcService,
       role,
       model: new mysqlSeneca.SequelizeModel(models.Author),
       cache,
