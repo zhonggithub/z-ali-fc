@@ -3,7 +3,7 @@
 
 # quick start
 
-* 在env里面创建配置文件.env。参照.env-example配置环境变量
+* 在env目录下创建配置文件.env。参照.env-example配置环境变量
 * npm install
 * npm run dev
 
