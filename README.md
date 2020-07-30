@@ -1,7 +1,16 @@
 # z-ali-fc
 阿里云函数计算框架，通过sequelize进行模型定义
 
-## Docs
+# quick start
+
+* 在env里面创建配置文件.env。参照.env-example配置环境变量
+* npm install
+* npm run dev
+
+# test
+* npm run test
+
+# Docs
 
 - [util](https://github.com/zhonggithub/zhz-util/blob/master/apidocs/docs/util.md)
 - [ServiceBase](https://github.com/zhonggithub/zhz-util/blob/master/apidocs/docs/ServiceBase.md)
