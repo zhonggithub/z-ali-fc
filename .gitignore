@@ -4,6 +4,7 @@ node_modules/
 .production_env
 *.log
 dist/
+code/
 .nyc_output
 ./graphql
 .idea/
