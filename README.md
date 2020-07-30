@@ -124,6 +124,29 @@ class AuthorService extends mysqlSeneca.Service {
 module.exports = AuthorService
 ```
 
+# 部署后如何使用
+```javascript
+const FCClient = require('@alicloud/fc2')
+
+const client = new FCClient('your account id', {
+  accessKeyID: 'your accessKeyID',
+  accessKeySecret: 'your accessKeyID',
+  region: 'cn-shenzhen',
+})
+client.invokeFunction('test', 'test', JSON.stringify({
+  role: 'seneca.author',
+  cmd: 'create',
+  params: {
+    name: Math.random().toString(),
+    mobile: '13760471840',
+    sex: 'MAN',
+  },
+})).then((ret) => {
+  console.log(ret)
+})
+```
+
+
 # API约束
 api的入参和出参统一采用json格式。
 `services`里面对表的操作的统一公布`create`，`retrieve`，`delete`，`update`，`updateStatus`，`list`，`count`，`treeList`，`listAll`这些基本api。不根据每一个业务需求去公布一个api比如以userId去统计订单数量统一在`count`api实现。除非是一些复杂性的业务相关的需求需要单独提供api，例如统计在某场景购买品类商品的男女比例。每一个api都需要做参数的合法性和有效性的校验。api返回的JSON对象格式如下：
@@ -177,24 +200,3 @@ api的入参和出参统一采用json格式。
 |offset | Int | 是 | 无 | 起始条数|
 |items | Array | 否 | 无 | 返回数据项|
 
-# 部署后如何使用
-```javascript
-const FCClient = require('@alicloud/fc2')
-
-const client = new FCClient('your account id', {
-  accessKeyID: 'your accessKeyID',
-  accessKeySecret: 'your accessKeyID',
-  region: 'cn-shenzhen',
-})
-client.invokeFunction('test', 'test', JSON.stringify({
-  role: 'seneca.author',
-  cmd: 'create',
-  params: {
-    name: Math.random().toString(),
-    mobile: '13760471840',
-    sex: 'MAN',
-  },
-})).then((ret) => {
-  console.log(ret)
-})
-```
