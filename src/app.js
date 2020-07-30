@@ -5,7 +5,7 @@
  * Created Date: 2019-06-14 09:52:10
  * Author: Zz
  * -----
- * Last Modified: 2020-07-29 22:14:15
+ * Last Modified: 2020-07-30 09:00:26
  * Modified By: Zz
  * -----
  * Description:
@@ -81,13 +81,13 @@ sequelize.sync().then(() => {
   throw err
 })
 
-module.exports.handler = (msg, context, callback) => {
-  const msgStr = Buffer.from(msg).toString()
-  logger.info(`recv the request data: ${msgStr}`)
+module.exports.handler = (event, context, callback) => {
+  const eventStr = Buffer.from(event).toString()
+  logger.info(`recv the request data: ${eventStr}`)
 
   try {
-    const msgData = JSON.parse(msgStr)
-    const { role, cmd, params } = msgData
+    const eventData = JSON.parse(eventStr)
+    const { role, cmd, params } = eventData
     fcService.actAsync({
       role,
       cmd,
