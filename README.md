@@ -134,7 +134,7 @@ api的入参和出参统一采用json格式。
     message: '',
     status: 200,
     data: {},
-  }```
+  }
   
 ### 统一返回值
 
@@ -176,10 +176,9 @@ api的入参和出参统一采用json格式。
 |offset | Int | 是 | 无 | 起始条数|
 |items | Array | 否 | 无 | 返回数据项|
 
-
-# 部署后如何使用
 ```
 
+# 部署后如何使用
 ```javascript
 const FCClient = require('@alicloud/fc2')
 
