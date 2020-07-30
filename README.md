@@ -1,3 +1,6 @@
+# z-ali-fc
+阿里云函数计算框架，通过sequelize进行模型定义
+
 # Basic Usage
 
 * 在src/modules/services创建文件夹author。author负责作者相关的业务
