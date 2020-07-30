@@ -5,7 +5,7 @@
  * Created Date: 2019-06-14 09:52:10
  * Author: Zz
  * -----
- * Last Modified: 2020-07-30 17:59:48
+ * Last Modified: 2020-07-30 20:59:15
  * Modified By: Zz
  * -----
  * Description:
@@ -14,13 +14,14 @@ import _ from 'lodash'
 import glob from 'glob'
 import bunyan from 'bunyan'
 import { setLocal as zsetLocal } from 'z-error'
-import { util, RedisCache, setLocal } from 'zhz-util'
+import {
+  util, RedisCache, setLocal, FCService,
+} from 'zhz-util'
 import config from './config'
 import models, {
   sequelize, many, one,
   belongOne, belongMany,
 } from './modules/models'
-import { FCService } from './lib'
 
 zsetLocal('zh-cn', `${__dirname}/lib/local`)
 setLocal('zh-cn', `${__dirname}/lib/local`)

@@ -52,7 +52,7 @@
     "sequelize": "^6.3.3",
     "validator": "^13.1.1",
     "z-error": "^2.0.2",
-    "zhz-util": "^2.0.8"
+    "zhz-util": "^2.0.9"
   },
   "ava": {
     "babel": true,

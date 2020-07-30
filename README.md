@@ -127,12 +127,15 @@ module.exports = AuthorService
 # 部署后如何使用
 ```javascript
 const FCClient = require('@alicloud/fc2')
+const moment = require('moment')
+const zhzutil = require('zhz-util')
 
-const client = new FCClient('your account id', {
-  accessKeyID: 'your accessKeyID',
-  accessKeySecret: 'your accessKeyID',
+const client = new FCClient('', {
+  accessKeyID: '',
+  accessKeySecret: '',
   region: 'cn-shenzhen',
 })
+const start = moment().format()
 client.invokeFunction('test', 'test', JSON.stringify({
   role: 'seneca.author',
   cmd: 'create',
@@ -143,7 +146,32 @@ client.invokeFunction('test', 'test', JSON.stringify({
   },
 })).then((ret) => {
   console.log(ret)
+  console.log({
+    start,
+    end: moment().format(),
+  })
 })
+
+const zclient = new zhzutil.FCClient('test', 'test', {
+  accountId: '',
+  accessKeyID: '',
+  accessKeySecret: '',
+  region: 'cn-shenzhen',
+})
+
+zclient.actAsync({
+  role: 'seneca.author',
+  cmd: 'create',
+}, {
+  params: {
+    name: Math.random().toString(),
+    mobile: '13760471840',
+    sex: 'MAN',
+  },
+}).then((ret) => {
+  console.log('zclient: ', ret)
+})
+
 ```
 
 # API约束
