@@ -1,6 +1,13 @@
 # z-ali-fc
 阿里云函数计算框架，通过sequelize进行模型定义
 
+## Docs
+
+- [util](https://github.com/zhonggithub/zhz-util/blob/master/apidocs/docs/util.md)
+- [ServiceBase](https://github.com/zhonggithub/zhz-util/blob/master/apidocs/docs/ServiceBase.md)
+- [Service](https://github.com/zhonggithub/zhz-util/blob/master/apidocs/docs/Service.md)
+- [ModelBase](https://github.com/zhonggithub/zhz-util/blob/master/apidocs/docs/ModelBase.md)
+
 # Basic Usage
 
 * 在src/modules/services创建文件夹author。author负责作者相关的业务
@@ -107,13 +114,6 @@ class AuthorService extends mysqlSeneca.Service {
 
 module.exports = AuthorService
 ```
-
-## Docs
-
-- [util](https://github.com/zhonggithub/zhz-util/blob/master/apidocs/docs/util.md)
-- [ServiceBase](https://github.com/zhonggithub/zhz-util/blob/master/apidocs/docs/ServiceBase.md)
-- [Service](https://github.com/zhonggithub/zhz-util/blob/master/apidocs/docs/Service.md)
-- [ModelBase](https://github.com/zhonggithub/zhz-util/blob/master/apidocs/docs/ModelBase.md)
 
 # API约束
 api的入参和出参统一采用json格式。
