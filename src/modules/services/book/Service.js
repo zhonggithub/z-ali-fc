@@ -8,7 +8,7 @@ class BookService extends mysqlSeneca.Service {
     const role = `${config.serviceName}.${resourceName}`
 
     super({
-      fcService,
+      seneca: fcService,
       role,
       model: new mysqlSeneca.SequelizeModel(models.Author),
       cache,

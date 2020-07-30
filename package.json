@@ -2,12 +2,12 @@
   "name": "z-ali-fc",
   "private": true,
   "version": "2.2.1",
-  "main": "dist/app.js",
+  "main": "dist/index.js",
   "repository": "git@gitlab.com:hugozz/z-ali-fc.git",
   "author": "Zz <quitjie@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node dist/app.js",
+    "start": "cross-env NODE_ENV=production node dist/index.js",
     "lint": "eslint src/",
     "prebuild": "npm run lint && rm -rf dist/",
     "build": "babel --out-dir dist src --copy-files ",
@@ -15,7 +15,7 @@
     "doc": "babel-node src/buildDoc.js && cd apidocs && mkdocs build",
     "view-doc": "cd apidocs && mkdocs serve",
     "test": "cross-env NODE_ENV=test nyc ava",
-    "dev": "cross-env NODE_ENV=development nodemon --exec babel-node -- src/app.js | bunyan"
+    "dev": "cross-env NODE_ENV=development nodemon --exec babel-node -- src/index.js | bunyan"
   },
   "devDependencies": {
     "@ava/babel": "^1.0.1",

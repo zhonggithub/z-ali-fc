@@ -5,7 +5,7 @@
  * Created Date: 2020-04-19 15:40:26
  * Author: Zz
  * -----
- * Last Modified: 2020-07-30 09:03:19
+ * Last Modified: 2020-07-30 09:21:12
  * Modified By: Zz
  * -----
  * Description:
@@ -25,7 +25,7 @@ class AuthorService extends mysqlSeneca.Service {
     const role = `${config.serviceName}.${resourceName}`
 
     super({
-      fcService,
+      seneca: fcService,
       role,
       model: new mysqlSeneca.SequelizeModel(models.Author),
       cache,

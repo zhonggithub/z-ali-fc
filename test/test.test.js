@@ -5,14 +5,14 @@
  * Created Date: 2020-06-30 20:29:40
  * Author: Zz
  * -----
- * Last Modified: 2020-07-29 22:07:46
+ * Last Modified: 2020-07-30 09:12:31
  * Modified By: Zz
  * -----
  * Description:
  */
 import test from 'ava'
 import { util } from 'zhz-util'
-import { fcService } from '../src/app'
+import { fcService } from '../src'
 import config from '../src/config'
 
 const role = `${config.serviceName}.test`
