@@ -5,7 +5,7 @@
  * Created Date: 2019-06-14 09:52:10
  * Author: Zz
  * -----
- * Last Modified: 2020-07-30 09:21:39
+ * Last Modified: 2020-07-30 17:59:48
  * Modified By: Zz
  * -----
  * Description:
@@ -21,11 +21,6 @@ import models, {
   belongOne, belongMany,
 } from './modules/models'
 import { FCService } from './lib'
-
-const logger = bunyan.createLogger({
-  name: config.name,
-  level: config.logLevel,
-})
 
 zsetLocal('zh-cn', `${__dirname}/lib/local`)
 setLocal('zh-cn', `${__dirname}/lib/local`)
@@ -59,9 +54,18 @@ for (const v of belongMany) {
   })
 }
 
+const logger = bunyan.createLogger({
+  name: config.name,
+  level: config.logLevel,
+})
 const cache = new RedisCache(config.cache)
-
 const fcService = new FCService(logger)
+
+if (!module.parent) {
+  exports.my_initializer = function (context, callback) {
+    callback(null, '')
+  }
+}
 
 const services = glob.sync(`${__dirname}/modules/services/*/Service.js`)
 _.each(services, (v) => {
