@@ -1,5 +1,5 @@
 # z-ali-fc
-阿里云函数计算框架，通过sequelize进行模型定义
+阿里云函数计算框架，通过sequelize进行模型定义。框架会默认为每一个表生成api：`create`、`retrieve`、`update`、`updateStatus`、`list`、`count`、`listAll`、`findOne`、`desctroy`、`findAll`、`findByIds`
 
 # quick start
 
@@ -146,10 +146,9 @@ client.invokeFunction('test', 'test', JSON.stringify({
 })
 ```
 
-
 # API约束
 api的入参和出参统一采用json格式。
-`services`里面对表的操作的统一公布`create`，`retrieve`，`delete`，`update`，`updateStatus`，`list`，`count`，`treeList`，`listAll`这些基本api。不根据每一个业务需求去公布一个api比如以userId去统计订单数量统一在`count`api实现。除非是一些复杂性的业务相关的需求需要单独提供api，例如统计在某场景购买品类商品的男女比例。每一个api都需要做参数的合法性和有效性的校验。api返回的JSON对象格式如下：
+`services`里面对表的操作的统一公布`create`、`retrieve`、`update`、`updateStatus`、`list`、`count`、`listAll`、`findOne`、`logicDel`、`desctroy`、`treeList`、`findAll`、`findByIds`这些基本api。不根据每一个业务需求去公布一个api比如以userId去统计订单数量统一在`count`api实现。除非是一些复杂性的业务相关的需求需要单独提供api，例如统计在某场景购买品类商品的男女比例。每一个api都需要做参数的合法性和有效性的校验。api返回的JSON对象格式如下：
 
   ```
   {
