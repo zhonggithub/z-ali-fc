@@ -171,17 +171,29 @@ module.exports = AuthorService
 
 # 部署后如何使用
 ```javascript
+const bunyan = require('bunyan')
 const FCClient = require('@alicloud/fc2')
 const moment = require('moment')
 const zhzutil = require('zhz-util')
 
+const logger = bunyan.createLogger({
+  name: 'test',
+  streams: [{
+    level: 'info',
+    path: 'test.log',
+  }, {
+    level: 'debug',
+    stream: process.stdout,
+  }],
+})
+const accountId = ''
 const options = {
   accessKeyID: '',
   accessKeySecret: '',
   region: 'cn-shenzhen',
 }
 
-const client = new FCClient('', options)
+const client = new FCClient(accountId, options)
 const start = moment().format()
 client.invokeFunction('test', 'test', JSON.stringify({
   role: 'seneca.author',
@@ -200,7 +212,7 @@ client.invokeFunction('test', 'test', JSON.stringify({
 })
 
 const zclient = new zhzutil.FCClient('test', 'test', {
-  accountId: '',
+  accountId,
   ...options,
 })
 
