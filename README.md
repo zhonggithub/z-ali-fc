@@ -175,11 +175,13 @@ const FCClient = require('@alicloud/fc2')
 const moment = require('moment')
 const zhzutil = require('zhz-util')
 
-const client = new FCClient('', {
+const options = {
   accessKeyID: '',
   accessKeySecret: '',
   region: 'cn-shenzhen',
-})
+}
+
+const client = new FCClient('', options)
 const start = moment().format()
 client.invokeFunction('test', 'test', JSON.stringify({
   role: 'seneca.author',
@@ -199,9 +201,7 @@ client.invokeFunction('test', 'test', JSON.stringify({
 
 const zclient = new zhzutil.FCClient('test', 'test', {
   accountId: '',
-  accessKeyID: '',
-  accessKeySecret: '',
-  region: 'cn-shenzhen',
+  ...options,
 })
 
 zclient.actAsync({
