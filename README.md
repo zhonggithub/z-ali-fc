@@ -22,7 +22,7 @@
 * 在src/modules/services创建文件夹author。author负责`作者`的核心业务实现
 * 在author文件夹下创建schema.js文件，定义author数据模型model
 
-```javvascript
+```javascript
 import { DataTypes } from 'sequelize'
 
 const Sex = {
@@ -65,9 +65,10 @@ module.exports = {
   },
 }
 ```
+
 * 在author文件夹内创建Service.js文件，负责业务实现
 
-```javascipt
+```javascript
 import validator from 'validator'
 import { ZError } from 'z-error'
 import { mysqlSeneca, util } from 'zhz-util'
