@@ -19,8 +19,52 @@
 
 # Basic Usage
 
-* 在src/modules/services创建文件夹author。author负责核心业务实现
+* 在src/modules/services创建文件夹author。author负责`作者`的核心业务实现
 * 在author文件夹下创建schema.js文件，定义author数据模型model
+
+```javvascript
+import { DataTypes } from 'sequelize'
+
+const Sex = {
+  Man: 'MAN',
+  Woman: 'WOMAN',
+}
+
+module.exports = {
+  name: 'Author',
+  Sex,
+  // 模型定义其他参数
+  options: {
+    paranoid: true,
+  },
+  schema: {
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      comment: '名称',
+    },
+    mobile: {
+      type: DataTypes.STRING,
+      comment: '手机号',
+    },
+    sex: {
+      type: DataTypes.ENUM,
+      values: Object.values(Sex),
+      comment: '性别',
+    },
+    status: {
+      type: DataTypes.TINYINT,
+      defaultValue: 1,
+    },
+  },
+  hasMany: {
+    model: 'Book',
+    options: {
+      foreignKey: 'authorId',
+    },
+  },
+}
+```
 * 在author文件夹内创建Service.js文件，负责业务实现
 
 ```javascipt
