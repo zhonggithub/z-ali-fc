@@ -12,7 +12,7 @@
     "prebuild": "npm run lint && rm -rf dist/",
     "build": "babel --out-dir dist src --copy-files",
     "pretar": "npm run lint && rm -rf code/",
-    "tar": "babel --out-dir code src --copy-files && cp -rf package.json code/ && cd code && npm install --production && zip code.zip code/*",
+    "tar": "babel --out-dir code src --copy-files && cp -rf package.json code/ && cd code && npm install --production && cd .. && zip code.zip code/*",
     "build-graphql": "babel-node src/buildGraphglSchema.js",
     "doc": "babel-node src/buildDoc.js && cd apidocs && mkdocs build",
     "view-doc": "cd apidocs && mkdocs serve",

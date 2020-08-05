@@ -9,3 +9,4 @@ code/
 ./graphql
 .idea/
 apidocs/
+code.*
