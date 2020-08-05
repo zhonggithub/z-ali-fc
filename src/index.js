@@ -5,7 +5,7 @@
  * Created Date: 2019-06-14 09:52:10
  * Author: Zz
  * -----
- * Last Modified: 2020-07-30 20:59:15
+ * Last Modified: 2020-08-05 18:19:28
  * Modified By: Zz
  * -----
  * Description:
@@ -68,6 +68,13 @@ if (!module.parent) {
   }
 }
 
+sequelize.sync().then(() => {
+  logger.info('模型加载成功')
+}).catch((err) => {
+  logger.error(err)
+  throw err
+})
+
 const services = glob.sync(`${__dirname}/modules/services/*/Service.js`)
 _.each(services, (v) => {
   const ResourceService = require(v)
@@ -78,12 +85,6 @@ _.each(config.service, (v, k) => {
   if (v) {
     fcService.addRemoteService(k, v)
   }
-})
-
-sequelize.sync().then(() => {
-  logger.info('模型加载成功')
-}).catch((err) => {
-  throw err
 })
 
 module.exports.handler = (event, context, callback) => {

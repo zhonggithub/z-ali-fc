@@ -10,7 +10,7 @@ class BookService extends mysqlSeneca.Service {
     super({
       seneca: fcService,
       role,
-      model: new mysqlSeneca.SequelizeModel(models.Author),
+      model: new mysqlSeneca.SequelizeModel(models.Book),
       cache,
       resourceName,
     })

@@ -5,7 +5,7 @@
  * Created Date: 2020-06-29 14:27:18
  * Author: Zz
  * -----
- * Last Modified: 2020-07-30 09:12:27
+ * Last Modified: 2020-08-05 16:41:34
  * Modified By: Zz
  * -----
  * Description:
@@ -38,45 +38,6 @@ test.serial(`role: ${role}, cmd: retrieve`, async (t) => {
   const response = await fcService.actAsync({
     role,
     cmd: 'retrieve',
-  }, {
-    params: {
-      id,
-    },
-  })
-  t.is(response.code, 0)
-  util.avaTest(t, response.data, resource, { status: 'ENABLED' })
-})
-
-test.serial(`role: ${role}, cmd: test`, async (t) => {
-  const response = await fcService.actAsync({
-    role,
-    cmd: 'test',
-  }, {
-    params: {
-      id,
-    },
-  })
-  t.is(response.code, 0)
-  util.avaTest(t, response.data, resource, { status: 'ENABLED' })
-})
-
-test.serial(`role: ${role}, cmd: test1`, async (t) => {
-  const response = await fcService.actAsync({
-    role,
-    cmd: 'test1',
-  }, {
-    params: {
-      id,
-    },
-  })
-  t.is(response.code, 0)
-  util.avaTest(t, response.data, resource, { status: 'ENABLED' })
-})
-
-test.serial(`role: ${role}, cmd: test2`, async (t) => {
-  const response = await fcService.actAsync({
-    role,
-    cmd: 'test2',
   }, {
     params: {
       id,

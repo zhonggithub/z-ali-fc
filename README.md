@@ -204,8 +204,8 @@ client.invokeFunction('test', 'test', JSON.stringify({
     sex: 'MAN',
   },
 })).then((ret) => {
-  console.log(ret)
-  console.log({
+  logger.info('ali-client', ret)
+  logger.info({
     start,
     end: moment().format(),
   })
@@ -217,16 +217,15 @@ const zclient = new zhzutil.FCClient('test', 'test', {
 })
 
 zclient.actAsync({
-  role: 'seneca.author',
+  role: 'seneca.book',
   cmd: 'create',
 }, {
   params: {
     name: Math.random().toString(),
-    mobile: '13760471840',
-    sex: 'MAN',
+    authorId: 1,
   },
 }).then((ret) => {
-  console.log('zclient: ', ret)
+  logger.info('zclient: ', ret)
 })
 
 ```
