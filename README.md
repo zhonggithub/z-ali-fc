@@ -1,23 +1,81 @@
 # z-ali-fc
+
 阿里云函数计算框架，通过sequelize进行模型定义。框架会默认为每一个表生成api：`create`、`retrieve`、`update`、`updateStatus`、`list`、`count`、`listAll`、`findOne`、`desctroy`、`findAll`、`findByIds`
 
-# quick start
+## quick start
 
 * 在env目录下创建配置文件.env。参照.env-example配置环境变量
 * npm install
 * npm run dev
 
-# test
+## 如何部署
+
+* 1，在根目录按照.env-example创建.env文件。
+
+```javascript
+ACCOUNT_ID=
+REGION=cn-shenzhen
+ACCESS_KEY_ID=
+ACCESS_KEY_SECRET=
+TIMEOUT=10
+RETRIES=3
+```
+
+* 2，在根目录按照template-example创建template.yml。配置相应的属性和环境变量
+
+```javascript
+ROSTemplateFormatVersion: '2015-09-01'
+Transform: 'Aliyun::Serverless-2018-04-03'
+Resources:
+  z-ali-fc:
+    Type: 'Aliyun::Serverless::Service'
+    Properties:
+      Role: '' // 配置角色
+      VpcConfig:
+        VpcId: '' // 配置vpc
+        VSwitchIds: [''] // 配置交换机
+        SecurityGroupId: '' // 配置安全组
+      LogConfig:
+        Project: '' // 配置log project
+        Logstore: 'stdout' // 配置logstore
+      InternetAccess: true
+    test:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Handler: index.handler
+        Runtime: nodejs12
+        CodeUri: ./
+        Description: z-ali-fc
+        MemorySize: 1024
+        Timeout: 15
+        EnvironmentVariables:
+          DATABASE: 
+          MYSQL_ACCOUNT: 
+          MYSQL_PASSWORD: 
+          MYSQL_HOST: 
+          MYSQL_PORT: 3306
+          REDIS_CACHE_TTL: 60
+          REDIS_PREFIX: 
+          REDIS_HOST: 
+          REDIS_PORT: 6379
+          REDIS_PASSWORD: ''
+          REDIS_DB: 1
+```
+
+* 3，npm run deploy
+
+## test
+
 * npm run test
 
-# Docs
+## Docs
 
 - [util](https://github.com/zhonggithub/zhz-util/blob/master/apidocs/docs/util.md)
 - [ServiceBase](https://github.com/zhonggithub/zhz-util/blob/master/apidocs/docs/ServiceBase.md)
 - [Service](https://github.com/zhonggithub/zhz-util/blob/master/apidocs/docs/Service.md)
 - [ModelBase](https://github.com/zhonggithub/zhz-util/blob/master/apidocs/docs/ModelBase.md)
 
-# Basic Usage
+## Basic Usage
 
 * 在src/modules/services创建文件夹author。author负责`作者`的核心业务实现
 * 在author文件夹下创建schema.js文件，定义author数据模型model

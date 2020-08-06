@@ -5,12 +5,12 @@
  * Created Date: 2019-06-14 09:52:10
  * Author: Zz
  * -----
- * Last Modified: 2020-08-06 11:37:24
+ * Last Modified: 2020-08-06 17:15:01
  * Modified By: Zz
  * -----
  * Description:
  */
-import _ from 'lodash'
+import lodash from 'lodash'
 import glob from 'glob'
 import bunyan from 'bunyan'
 import { setLocal as zsetLocal } from 'z-error'
@@ -76,12 +76,12 @@ sequelize.sync().then(() => {
 })
 
 const services = glob.sync(`${__dirname}/modules/services/*/Service.js`)
-_.each(services, (v) => {
+lodash.each(services, (v) => {
   const ResourceService = require(v)
   const tmp = new ResourceService(fcService, cache)
   tmp.loadCmd()
 })
-_.each(config.service, (v, k) => {
+lodash.each(config.service, (v, k) => {
   if (v) {
     fcService.addRemoteService(k, v)
   }
