@@ -169,7 +169,8 @@ class AuthorService extends mysqlSeneca.Service {
 module.exports = AuthorService
 ```
 
-# 部署后如何使用
+## 部署后如何使用
+
 ```javascript
 const bunyan = require('bunyan')
 const FCClient = require('@alicloud/fc2')

@@ -5,7 +5,7 @@
  * Created Date: 2019-06-14 09:52:10
  * Author: Zz
  * -----
- * Last Modified: 2020-08-05 18:19:28
+ * Last Modified: 2020-08-06 11:37:24
  * Modified By: Zz
  * -----
  * Description:
@@ -71,7 +71,7 @@ if (!module.parent) {
 sequelize.sync().then(() => {
   logger.info('模型加载成功')
 }).catch((err) => {
-  logger.error(err)
+  logger.error('模型同步失败', err)
   throw err
 })
 

@@ -1,0 +1,31 @@
+ROSTemplateFormatVersion: '2015-09-01'
+Transform: 'Aliyun::Serverless-2018-04-03'
+Resources:
+  z-ali-fc:
+    Type: 'Aliyun::Serverless::Service'
+    test:
+      LogConfig:
+        Project: 'z-test'
+        Logstore: 'z-test'
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Handler: index.handler
+        Runtime: nodejs12
+        CodeUri: ./
+        Description: Nodejs Http Trigger Test
+        MemorySize: 1024
+        Timeout: 15
+        EnvironmentVariables:
+          DATABASE: 
+          MYSQL_ACCOUNT: 
+          MYSQL_PASSWORD:
+          MYSQL_HOST: 
+          MYSQL_PORT: 3306
+          REDIS_CACHE_TTL:
+          REDIS_PREFIX:
+          REDIS_HOST:
+          REDIS_PORT:
+          REDIS_DB:
+          REDIS_PASSWORD:
+
+     
